@@ -1,0 +1,40 @@
+{
+	"name": "typescript-toolkit",
+	"version": "1.0.0",
+	"description": "Common workspace functions for TypeScript & React projects.",
+	"repository": "github:ek68794998/typescript-toolkit.git",
+	"main": "index.js",
+	"scripts": {
+		"build": "pnpm -r build",
+		"dev": "pnpm -r --parallel dev",
+		"generate-index": "node scripts/generate-index.js",
+		"lint": "pnpm -r lint",
+		"test": "pnpm -r test"
+	},
+	"keywords": [],
+	"author": "Eric Kumlin",
+	"license": "MIT",
+	"packageManager": "pnpm@10.10.0",
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@eslint/eslintrc": "^3.3.1",
+		"@eslint/js": "^9.36.0",
+		"@types/node": "^22.13.10",
+		"@vitest/coverage-v8": "^3.2.4",
+		"@vitest/ui": "^3.2.4",
+		"eslint": "^9.36.0",
+		"eslint-plugin-jsdoc": "^60.4.1",
+		"eslint-plugin-prefer-arrow": "^1.2.3",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-sort-destructure-keys": "^2.0.0",
+		"eslint-plugin-typescript-sort-keys": "^3.3.0",
+		"eslint-plugin-unicorn": "^61.0.2",
+		"eslint-plugin-vitest": "^0.5.4",
+		"globals": "^16.4.0",
+		"lefthook": "^1.13.4",
+		"tsup": "^8.0.0",
+		"typescript": "5.9.2",
+		"typescript-eslint": "^8.44.1",
+		"vitest": "^3.2.4"
+	}
+}

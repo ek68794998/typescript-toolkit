@@ -1,0 +1,37 @@
+{
+	"name": "@ekumlin/typescript-toolkit",
+	"version": "1.0.0",
+	"repository": "github:ek68794998/typescript-toolkit.git",
+	"exports": {
+		"./collections": "./dist/collections.js",
+		"./dom": "./dist/dom.js",
+		"./environment": "./dist/environment.js",
+		"./error": "./dist/error.js",
+		"./http": "./dist/http.js",
+		"./io": "./dist/io.js",
+		"./number": "./dist/number.js",
+		"./promise": "./dist/promise.js",
+		"./routing": "./dist/routing.js",
+		"./string": "./dist/string.js",
+		"./time": "./dist/time.js",
+		"./types": "./dist/types.js",
+		"./values": "./dist/values.js"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"lint": "tsc --noEmit",
+		"release": "pnpm build && npm publish",
+		"test": "vitest"
+	},
+	"dependencies": {
+		"zod": "^4.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.13.10",
+		"typescript": "5.9.2"
+	}
+}
