@@ -17,6 +17,9 @@
 		"./types": "./dist/types.js",
 		"./values": "./dist/values.js"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"files": [
 		"dist"
 	],
