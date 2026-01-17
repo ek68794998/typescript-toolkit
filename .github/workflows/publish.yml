@@ -1,7 +1,10 @@
 name: Publish to NPM
+
 on:
   release:
     types: [published]
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,5 +23,7 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build & test
         uses: ./.github/actions/build
-      - run: npm publish --provenance
+      - run: npm publish
         working-directory: ./packages/utils
+        env:
+          NPM_TOKEN: ''
