@@ -1,3 +1,6 @@
+[![build & deploy](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml/badge.svg)](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml)
+https://img.shields.io/npm/v/%40ekumlin%2Ftypescript-toolkit
+
 # TypeScript Toolkit
 
 Common workspace functions for TypeScript & React projects.
