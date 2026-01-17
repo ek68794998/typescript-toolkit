@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "pnpm -r build",
 		"dev": "pnpm -r --parallel dev",
-		"generate-index": "node scripts/generate-index.js",
+		"diagnostic": "echo \"Turbo $(turbo --version); Node $(node -v); NPM $(npm -v); PNPM $(pnpm -v); TS(C) $(tsc -v)\"",
 		"lint": "pnpm -r lint",
 		"test": "pnpm -r test"
 	},
