@@ -18,6 +18,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Initialize environment
         uses: ./.github/actions/setup
+      - name: Build & test
+        uses: ./.github/actions/build
       - run: npm publish --provenance
         working-directory: ./packages/utils
         env:

@@ -1,6 +1,6 @@
 {
 	"name": "typescript-toolkit",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Common workspace functions for TypeScript & React projects.",
 	"repository": "github:ek68794998/typescript-toolkit.git",
 	"main": "index.js",
