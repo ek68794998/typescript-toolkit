@@ -1,5 +1,5 @@
-[![build & deploy](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml/badge.svg)](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml)
-https://img.shields.io/npm/v/%40ekumlin%2Ftypescript-toolkit
+[![Publish to NPM](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml/badge.svg)](https://github.com/ek68794998/typescript-toolkit/actions/workflows/publish.yml)
+[![Open on NPM](https://img.shields.io/npm/v/%40ekumlin%2Ftypescript-toolkit)](https://www.npmjs.com/package/@ekumlin/typescript-toolkit/)
 
 # TypeScript Toolkit
 
