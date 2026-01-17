@@ -1,6 +1,6 @@
 {
 	"name": "@ekumlin/typescript-toolkit",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": "github:ek68794998/typescript-toolkit.git",
 	"exports": {
 		"./collections": "./dist/collections.js",
