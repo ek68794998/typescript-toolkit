@@ -9,7 +9,9 @@
 		"dev": "pnpm -r --parallel dev",
 		"diagnostic": "echo \"Turbo $(turbo --version); Node $(node -v); NPM $(npm -v); PNPM $(pnpm -v); TS(C) $(tsc -v)\"",
 		"lint": "pnpm -r lint",
-		"test": "pnpm -r test"
+		"test": "pnpm -r test --no-watch",
+		"test:coverage": "pnpm -r test --coverage --no-watch",
+		"test:watch": "pnpm -r test"
 	},
 	"keywords": [],
 	"author": "Eric Kumlin",

@@ -1,15 +1,31 @@
-export class Lazy<T> {
-	private instance: T | undefined;
+interface InitializedLazy<T> {
+	data: T;
+	initialized: true;
+}
 
-	public constructor(private readonly factory: () => T) {}
+interface UninitializedLazy {
+	initialized: false;
+}
+
+type LazyInstance<T> = InitializedLazy<T> | UninitializedLazy;
+
+export class Lazy<T> {
+	private instance: LazyInstance<T>;
+
+	public constructor(private readonly factory: () => T) {
+		this.instance = { initialized: false };
+	}
 
 	public get(): T {
-		let instance = this.instance;
+		const { initialized } = this.instance;
 
-		if (!instance) {
-			instance = this.factory();
+		if (!initialized) {
+			this.instance = {
+				data: this.factory(),
+				initialized: true,
+			};
 		}
 
-		return instance;
+		return this.instance.data;
 	}
 }

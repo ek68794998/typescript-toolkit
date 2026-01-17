@@ -8,5 +8,5 @@ runs:
       run: pnpm build
       shell: bash
     - name: Run tests
-      run: pnpm test --no-watch
+      run: pnpm test
       shell: bash

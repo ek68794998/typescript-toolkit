@@ -22,5 +22,3 @@ jobs:
         uses: ./.github/actions/build
       - run: npm publish --provenance
         working-directory: ./packages/utils
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
