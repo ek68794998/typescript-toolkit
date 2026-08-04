@@ -22,10 +22,7 @@
 			"Bash(gh repo view:*)",
 
 			"Bash(grep:*)",
-			"Bash(ls:*)",
-			"Bash(cat:*)",
-			"Bash(head:*)",
-			"Bash(tail:*)"
+			"Bash(ls:*)"
 		],
 		"ask": ["Bash(npm install:*)", "Bash(npm uninstall:*)"],
 		"deny": [
