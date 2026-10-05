@@ -1,3 +1,4 @@
+import { dangerouslyCoerceType } from "../testing";
 import { getMaxBy, MovePosition, moveItem, toArray } from "./array";
 
 describe("array/getMaxBy", () => {
@@ -196,5 +197,15 @@ describe("array/moveItem", () => {
 		const items = [1, , 3];
 
 		expect(moveItem(items, 1, "top")).toEqual([undefined, 1, 3]);
+	});
+
+	test("throws for an invalid position", () => {
+		expect(() =>
+			moveItem(
+				["a", "b"],
+				0,
+				dangerouslyCoerceType<MovePosition>("sideways"),
+			),
+		).toThrow("Unreachable code was reached at runtime.");
 	});
 });
