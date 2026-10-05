@@ -25,7 +25,7 @@ import { invariant } from '@ekumlin/typescript-toolkit/values';
 ## Available Modules
 
 ### `collections`
-Array, map, and object utilities for common operations, including `toArray`, `moveItem` (with `MovePositions`), `omitKeys`, and `getMaxBy`.
+Array, map, and object utilities for common operations, including `toArray`, `moveItem` (with the `MovePosition` constant), `omitKeys`, and `getMaxBy`.
 
 ### `dom`
 DOM manipulation and CSS helpers for browser environments.
@@ -64,7 +64,7 @@ Date and time utilities including leap year detection, days in month calculation
 Type guards for runtime type checking, and utility types like `DeepPartial`.
 
 ### `values`
-Value assertion utilities including `invariant` and `unreachable` for runtime guarantees.
+Value assertion utilities including `invariant` and `unreachable` for runtime guarantees, and `createConstant` for defining a fixed set of values with a type guard (`isConstant`) and parser (`asConstant`).
 
 ## Dependencies
 

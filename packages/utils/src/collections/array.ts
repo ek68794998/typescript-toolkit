@@ -1,5 +1,9 @@
-import z from "zod";
-import { invariant, unreachable } from "../values";
+import {
+	type ConstantValue,
+	createConstant,
+	invariant,
+	unreachable,
+} from "../values";
 
 export const getMaxBy = <T>(
 	items: T[],
@@ -33,11 +37,14 @@ const isReadonlyArray = <T>(value: T | readonly T[]): value is readonly T[] =>
 export const toArray = <T>(value: T | readonly T[]): T[] =>
 	isReadonlyArray(value) ? [...value] : [value];
 
-export const MovePositions = ["up", "down", "top", "bottom"] as const;
+export const MovePosition = createConstant("MovePosition", [
+	"up",
+	"down",
+	"top",
+	"bottom",
+]);
 
-export const movePositionSchema = z.enum(MovePositions);
-
-export type MovePosition = z.infer<typeof movePositionSchema>;
+export type MovePosition = ConstantValue<typeof MovePosition>;
 
 /**
  * Returns a copy of `items` with the item at `fromIndex` moved one step up or

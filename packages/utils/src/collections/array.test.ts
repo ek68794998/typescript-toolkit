@@ -1,10 +1,4 @@
-import {
-	getMaxBy,
-	MovePositions,
-	moveItem,
-	movePositionSchema,
-	toArray,
-} from "./array";
+import { getMaxBy, MovePosition, moveItem, toArray } from "./array";
 
 describe("array/getMaxBy", () => {
 	test.each<[number[], number | undefined]>([
@@ -86,15 +80,24 @@ describe("array/toArray", () => {
 	});
 });
 
-describe("array/movePositionSchema", () => {
-	test.each(MovePositions)("accepts %p", (position) => {
-		expect(movePositionSchema.parse(position)).toBe(position);
+describe("array/MovePosition", () => {
+	test("lists the positions", () => {
+		expect(MovePosition.name).toBe("MovePosition");
+		expect(MovePosition.values).toEqual(["up", "down", "top", "bottom"]);
+	});
+
+	test.each(MovePosition.values)("accepts %p", (position) => {
+		expect(MovePosition.isConstant(position)).toBe(true);
+		expect(MovePosition.asConstant(position)).toBe(position);
 	});
 
 	test.each<unknown>(["left", "UP", "", 0, null, undefined])(
 		"rejects %p",
 		(value) => {
-			expect(movePositionSchema.safeParse(value).success).toBe(false);
+			expect(MovePosition.isConstant(value)).toBe(false);
+			expect(() => MovePosition.asConstant(value)).toThrow(
+				/known constant of type MovePosition/,
+			);
 		},
 	);
 });
@@ -103,9 +106,7 @@ describe("array/moveItem", () => {
 	const abc = ["a", "b", "c"] as const;
 	const abcd = ["a", "b", "c", "d"] as const;
 
-	test.each<
-		[readonly string[], number, (typeof MovePositions)[number], string[]]
-	>([
+	test.each<[readonly string[], number, MovePosition, string[]]>([
 		// up
 		[abc, 1, "up", ["b", "a", "c"]],
 		[abc, 2, "up", ["a", "c", "b"]],
@@ -143,7 +144,7 @@ describe("array/moveItem", () => {
 		[abc, Number.POSITIVE_INFINITY],
 		[[], 0],
 	])("returns an unchanged copy of %p for index %p", (items, fromIndex) => {
-		for (const position of MovePositions) {
+		for (const position of MovePosition.values) {
 			const result = moveItem(items, fromIndex, position);
 
 			expect(result).toEqual(items);
@@ -154,7 +155,7 @@ describe("array/moveItem", () => {
 	test("does not mutate the input", () => {
 		const items = ["a", "b", "c"];
 
-		for (const position of MovePositions) {
+		for (const position of MovePosition.values) {
 			moveItem(items, 1, position);
 		}
 
@@ -179,7 +180,7 @@ describe("array/moveItem", () => {
 		expect(result[2]).toBe(item3);
 	});
 
-	test.each<[unknown[], number, (typeof MovePositions)[number], unknown[]]>([
+	test.each<[unknown[], number, MovePosition, unknown[]]>([
 		[[1, undefined, 3], 1, "up", [undefined, 1, 3]],
 		[[null, 0, false], 0, "bottom", [0, false, null]],
 		[["", "x"], 1, "top", ["x", ""]],
