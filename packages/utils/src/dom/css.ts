@@ -2,7 +2,7 @@ import z from "zod";
 import { isString } from "../types";
 import { type ConstantValue, createConstant } from "../values";
 
-const HtmlColorName = createConstant("HtmlColorName", [
+export const HtmlColorName = createConstant("HtmlColorName", [
 	"aliceBlue", // #F0F8FF
 	"antiqueWhite", // #FAEBD7
 	"aqua", // #00FFFF
