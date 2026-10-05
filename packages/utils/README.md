@@ -54,6 +54,9 @@ URL and routing utilities for navigation.
 ### `string`
 String manipulation functions including `upperFirst`, `toReadableFileSize`, `includesIgnoreCase`, and URL validation.
 
+### `testing`
+Test helpers for building fixtures: `dangerouslyMockPartial`, `dangerouslyMockDeepPartial`, and `dangerouslyCoerceType`. All are unchecked casts, so use them only in tests.
+
 ### `time`
 Date and time utilities including leap year detection, days in month calculation, date validation (`isValidDate`), and time format validation.
 
