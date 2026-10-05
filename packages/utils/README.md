@@ -55,7 +55,7 @@ URL and routing utilities for navigation.
 String manipulation functions including `upperFirst`, `toReadableFileSize`, `includesIgnoreCase`, and URL validation.
 
 ### `time`
-Date and time utilities including leap year detection, days in month calculation, and time format validation.
+Date and time utilities including leap year detection, days in month calculation, date validation (`isValidDate`), and time format validation.
 
 ### `types`
 Type guards for runtime type checking.
