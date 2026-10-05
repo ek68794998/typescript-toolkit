@@ -58,7 +58,7 @@ String manipulation functions including `upperFirst`, `toReadableFileSize`, `inc
 Date and time utilities including leap year detection, days in month calculation, date validation (`isValidDate`), and time format validation.
 
 ### `types`
-Type guards for runtime type checking.
+Type guards for runtime type checking, and utility types like `DeepPartial`.
 
 ### `values`
 Value assertion utilities including `invariant` and `unreachable` for runtime guarantees.
