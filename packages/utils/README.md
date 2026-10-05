@@ -28,7 +28,7 @@ import { invariant } from '@ekumlin/typescript-toolkit/values';
 Array, map, and object utilities for common operations, including `toArray`, `moveItem` (with the `MovePosition` constant), `omitKeys`, and `getMaxBy`.
 
 ### `dom`
-DOM manipulation and CSS helpers for browser environments.
+DOM manipulation and CSS helpers for browser environments, including the `HtmlColorName` constant.
 
 ### `environment`
 Runtime environment detection utilities.
@@ -37,10 +37,10 @@ Runtime environment detection utilities.
 Error handling and conversion utilities.
 
 ### `http`
-HTTP-related utilities including status codes, headers, query parameters, authorization tokens, `searchParamsToObject`, and `toFormData`.
+HTTP-related utilities including status codes, headers, query parameters, authorization tokens, `searchParamsToObject`, and `toFormData`. `HttpMethod`, `HttpRequestHeader`, and `HttpResponseHeader` are constants (see `createConstant`) with matching `is*`/`as*` helpers.
 
 ### `io`
-Input/output constants including key codes and MIME type names.
+Input/output constants including key codes (`KeyCode`) and MIME type names (`MimeTypeName`).
 
 ### `number`
 Math and number utilities like `clamp`, `positiveModulo`, `scaleToFit`, and number conversions.

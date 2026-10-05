@@ -1,13 +1,18 @@
-export type HttpMethod =
-	| "CONNECT"
-	| "DELETE"
-	| "GET"
-	| "HEAD"
-	| "OPTIONS"
-	| "PATCH"
-	| "POST"
-	| "PUT"
-	| "TRACE";
+import { type ConstantValue, createConstant } from "../values";
+
+export const HttpMethod = createConstant("HttpMethod", [
+	"CONNECT",
+	"DELETE",
+	"GET",
+	"HEAD",
+	"OPTIONS",
+	"PATCH",
+	"POST",
+	"PUT",
+	"TRACE",
+]);
+
+export type HttpMethod = ConstantValue<typeof HttpMethod>;
 
 export const Connect = "CONNECT" as const satisfies HttpMethod;
 export const Delete = "DELETE" as const satisfies HttpMethod;
@@ -19,19 +24,8 @@ export const Post = "POST" as const satisfies HttpMethod;
 export const Put = "PUT" as const satisfies HttpMethod;
 export const Trace = "TRACE" as const satisfies HttpMethod;
 
-const httpMethods = new Set<HttpMethod>([
-	Connect,
-	Delete,
-	Get,
-	Head,
-	Options,
-	Patch,
-	Post,
-	Put,
-	Trace,
-]);
+export const asHttpMethod = (value: unknown): HttpMethod =>
+	HttpMethod.asConstant(value);
 
-export const isHttpMethod = (obj: unknown): obj is HttpMethod => {
-	const possibleHttpMethod = obj as HttpMethod;
-	return httpMethods.has(possibleHttpMethod);
-};
+export const isHttpMethod = (obj: unknown): obj is HttpMethod =>
+	HttpMethod.isConstant(obj);

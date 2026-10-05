@@ -1,6 +1,7 @@
 import { z } from "zod";
+import { type ConstantValue, createConstant } from "../values";
 
-export const mimeTypeNameSchema = z.enum([
+export const MimeTypeName = createConstant("MimeTypeName", [
 	"application/json",
 	"application/octet-stream",
 	"application/zip",
@@ -13,9 +14,11 @@ export const mimeTypeNameSchema = z.enum([
 	"video/mp4",
 	"video/msvideo",
 	"video/x-ms-wmv",
-] as const);
+]);
 
-export type MimeTypeName = z.infer<typeof mimeTypeNameSchema>;
+export type MimeTypeName = ConstantValue<typeof MimeTypeName>;
+
+export const mimeTypeNameSchema = z.enum(MimeTypeName.values);
 
 export const asMimeTypeName = (value: unknown): MimeTypeName =>
 	mimeTypeNameSchema.parse(value);

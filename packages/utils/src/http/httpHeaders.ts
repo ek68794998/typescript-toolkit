@@ -1,70 +1,78 @@
-export type HttpRequestHeader =
-	| "Accept"
-	| "Accept-Charset"
-	| "Accept-Datetime"
-	| "Accept-Encoding"
-	| "Accept-Language"
-	| "Authorization"
-	| "Cache-Control"
-	| "Connection"
-	| "Content-Length"
-	| "Content-MD5"
-	| "Content-Type"
-	| "Cookie"
-	| "Date"
-	| "Expect"
-	| "From"
-	| "Host"
-	| "If-Match"
-	| "If-Modified-Since"
-	| "If-None-Match"
-	| "If-Range"
-	| "If-Unmodified-Since"
-	| "Max-Forwards"
-	| "Pragma"
-	| "Proxy-Authorization"
-	| "Range"
-	| "Referer"
-	| "TE"
-	| "Upgrade"
-	| "User-Agent"
-	| "Via"
-	| "Warning";
+import { type ConstantValue, createConstant } from "../values";
 
-export type HttpResponseHeader =
-	| "Accept-Ranges"
-	| "Age"
-	| "Allow"
-	| "Cache-Control"
-	| "Connection"
-	| "Content-Disposition"
-	| "Content-Encoding"
-	| "Content-Language"
-	| "Content-Length"
-	| "Content-Location"
-	| "Content-MD5"
-	| "Content-Range"
-	| "Content-Type"
-	| "Date"
-	| "ETag"
-	| "Expires"
-	| "Last-Modified"
-	| "Link"
-	| "Location"
-	| "P3P"
-	| "Pragma"
-	| "Proxy-Authenticate"
-	| "Refresh"
-	| "Retry-After"
-	| "Server"
-	| "Set-Cookie"
-	| "Strict-Transport-Security"
-	| "Trailer"
-	| "Transfer-Encoding"
-	| "Vary"
-	| "Via"
-	| "Warning"
-	| "WWW-Authenticate";
+export const HttpRequestHeader = createConstant("HttpRequestHeader", [
+	"Accept",
+	"Accept-Charset",
+	"Accept-Datetime",
+	"Accept-Encoding",
+	"Accept-Language",
+	"Authorization",
+	"Cache-Control",
+	"Connection",
+	"Content-Length",
+	"Content-MD5",
+	"Content-Type",
+	"Cookie",
+	"Date",
+	"Expect",
+	"From",
+	"Host",
+	"If-Match",
+	"If-Modified-Since",
+	"If-None-Match",
+	"If-Range",
+	"If-Unmodified-Since",
+	"Max-Forwards",
+	"Pragma",
+	"Proxy-Authorization",
+	"Range",
+	"Referer",
+	"TE",
+	"Upgrade",
+	"User-Agent",
+	"Via",
+	"Warning",
+]);
+
+export type HttpRequestHeader = ConstantValue<typeof HttpRequestHeader>;
+
+export const HttpResponseHeader = createConstant("HttpResponseHeader", [
+	"Accept-Ranges",
+	"Age",
+	"Allow",
+	"Cache-Control",
+	"Connection",
+	"Content-Disposition",
+	"Content-Encoding",
+	"Content-Language",
+	"Content-Length",
+	"Content-Location",
+	"Content-MD5",
+	"Content-Range",
+	"Content-Type",
+	"Date",
+	"ETag",
+	"Expires",
+	"Last-Modified",
+	"Link",
+	"Location",
+	"P3P",
+	"Pragma",
+	"Proxy-Authenticate",
+	"Refresh",
+	"Retry-After",
+	"Server",
+	"Set-Cookie",
+	"Strict-Transport-Security",
+	"Trailer",
+	"Transfer-Encoding",
+	"Vary",
+	"Via",
+	"Warning",
+	"WWW-Authenticate",
+]);
+
+export type HttpResponseHeader = ConstantValue<typeof HttpResponseHeader>;
 
 export const Accept = "Accept" as const satisfies HttpRequestHeader;
 export const AcceptCharset =
@@ -154,85 +162,14 @@ export const Warning = "Warning" as const satisfies HttpRequestHeader &
 export const WwwAuthenticate =
 	"WWW-Authenticate" as const satisfies HttpResponseHeader;
 
-const httpResponseHeaders = new Set<HttpResponseHeader>([
-	AcceptRanges,
-	Age,
-	Allow,
-	CacheControl,
-	Connection,
-	ContentDisposition,
-	ContentEncoding,
-	ContentLanguage,
-	ContentLength,
-	ContentLocation,
-	ContentMd5,
-	ContentRange,
-	ContentType,
-	DateTime,
-	ETag,
-	Expires,
-	LastModified,
-	Link,
-	LocationUri,
-	P3P,
-	Pragma,
-	ProxyAuthenticate,
-	Refresh,
-	RetryAfter,
-	Server,
-	SetCookie,
-	StrictTransportSecurity,
-	Trailer,
-	TransferEncodingResponse,
-	Vary,
-	Via,
-	Warning,
-	WwwAuthenticate,
-]);
+export const asHttpRequestHeader = (value: unknown): HttpRequestHeader =>
+	HttpRequestHeader.asConstant(value);
 
-const httpRequestHeaders = new Set<HttpRequestHeader>([
-	Accept,
-	AcceptCharset,
-	AcceptDatetime,
-	AcceptEncoding,
-	AcceptLanguage,
-	Authorization,
-	CacheControl,
-	Connection,
-	ContentLength,
-	ContentMd5,
-	ContentType,
-	Cookie,
-	DateTime,
-	Expect,
-	From,
-	Host,
-	IfMatch,
-	IfModifiedSince,
-	IfNoneMatch,
-	IfRange,
-	IfUnmodifiedSince,
-	IfunmodifiedSince,
-	MaxForwards,
-	Pragma,
-	ProxyAuthorization,
-	Ranges,
-	Referer,
-	TE,
-	Upgrade,
-	UserAgent,
-	Via,
-	Warning,
-]);
+export const isHttpRequestHeader = (obj: unknown): obj is HttpRequestHeader =>
+	HttpRequestHeader.isConstant(obj);
 
-export const isHttpRequestHeader = (obj: unknown): obj is HttpRequestHeader => {
-	const possibleHttpRequestHeader = obj as HttpRequestHeader;
-	return httpRequestHeaders.has(possibleHttpRequestHeader);
-};
+export const asHttpResponseHeader = (value: unknown): HttpResponseHeader =>
+	HttpResponseHeader.asConstant(value);
 
-export const isHttpResponseHeader = (
-	obj: unknown,
-): obj is HttpResponseHeader => {
-	const possibleHttpResponseHeader = obj as HttpResponseHeader;
-	return httpResponseHeaders.has(possibleHttpResponseHeader);
-};
+export const isHttpResponseHeader = (obj: unknown): obj is HttpResponseHeader =>
+	HttpResponseHeader.isConstant(obj);

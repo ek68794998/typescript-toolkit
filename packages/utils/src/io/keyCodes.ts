@@ -1,6 +1,7 @@
 import z from "zod";
+import { type ConstantValue, createConstant } from "../values";
 
-export const keyCodeSchema = z.enum([
+export const KeyCode = createConstant("KeyCode", [
 	"AltLeft",
 	"AltRight",
 	"ArrowDown",
@@ -104,9 +105,11 @@ export const keyCodeSchema = z.enum([
 	"Slash",
 	"Space",
 	"Tab",
-] as const);
+]);
 
-export type KeyCode = z.infer<typeof keyCodeSchema>;
+export type KeyCode = ConstantValue<typeof KeyCode>;
+
+export const keyCodeSchema = z.enum(KeyCode.values);
 
 export const asKeyCode = (value: unknown): KeyCode =>
 	keyCodeSchema.parse(value);

@@ -151,4 +151,57 @@ describe("http/httpHeaders", () => {
 			expect(httpHeaders.isHttpResponseHeader(input)).toBe(expected);
 		});
 	});
+
+	describe("HttpRequestHeader / HttpResponseHeader", () => {
+		test("values match the guards", () => {
+			for (const header of httpHeaders.HttpRequestHeader.values) {
+				expect(httpHeaders.isHttpRequestHeader(header)).toBe(true);
+			}
+
+			for (const header of httpHeaders.HttpResponseHeader.values) {
+				expect(httpHeaders.isHttpResponseHeader(header)).toBe(true);
+			}
+		});
+
+		test.each(["Via", "Warning", "Connection", "Content-Type"])(
+			"includes the shared header %s in both",
+			(header) => {
+				expect(httpHeaders.HttpRequestHeader.values).toContain(header);
+				expect(httpHeaders.HttpResponseHeader.values).toContain(header);
+			},
+		);
+	});
+
+	describe("asHttpRequestHeader", () => {
+		test.each(["Accept", "Authorization", "Via"])(
+			"returns %s",
+			(header) => {
+				expect(httpHeaders.asHttpRequestHeader(header)).toBe(header);
+			},
+		);
+
+		test.each<unknown>(["accept", "ETag", "Set-Cookie", "", null, 1])(
+			"throws for %p",
+			(value) => {
+				expect(() => httpHeaders.asHttpRequestHeader(value)).toThrow(
+					/HttpRequestHeader/,
+				);
+			},
+		);
+	});
+
+	describe("asHttpResponseHeader", () => {
+		test.each(["ETag", "Set-Cookie", "Via"])("returns %s", (header) => {
+			expect(httpHeaders.asHttpResponseHeader(header)).toBe(header);
+		});
+
+		test.each<unknown>(["etag", "Accept", "Cookie", "", null, 1])(
+			"throws for %p",
+			(value) => {
+				expect(() => httpHeaders.asHttpResponseHeader(value)).toThrow(
+					/HttpResponseHeader/,
+				);
+			},
+		);
+	});
 });
