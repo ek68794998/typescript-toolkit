@@ -25,7 +25,7 @@ import { invariant } from '@ekumlin/typescript-toolkit/values';
 ## Available Modules
 
 ### `collections`
-Array, map, and object utilities for common operations.
+Array, map, and object utilities for common operations, including `toArray`, `moveItem` (with `MovePositions`), `omitKeys`, and `getMaxBy`.
 
 ### `dom`
 DOM manipulation and CSS helpers for browser environments.
