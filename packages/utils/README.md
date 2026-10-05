@@ -43,7 +43,7 @@ HTTP-related utilities including status codes, headers, query parameters, author
 Input/output constants including key codes and MIME type names.
 
 ### `number`
-Math and number utilities like `clamp`, `positiveModulo`, and number conversions.
+Math and number utilities like `clamp`, `positiveModulo`, `scaleToFit`, and number conversions.
 
 ### `promise`
 Promise manipulation helpers.
