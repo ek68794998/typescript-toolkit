@@ -1,6 +1,6 @@
 {
 	"name": "@ekumlin/typescript-toolkit",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"repository": "github:ek68794998/typescript-toolkit.git",
 	"exports": {
 		"./collections": "./dist/collections.js",
@@ -13,6 +13,7 @@
 		"./promise": "./dist/promise.js",
 		"./routing": "./dist/routing.js",
 		"./string": "./dist/string.js",
+		"./testing": "./dist/testing.js",
 		"./time": "./dist/time.js",
 		"./types": "./dist/types.js",
 		"./values": "./dist/values.js"

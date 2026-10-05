@@ -10,9 +10,16 @@ export default defineConfig({
 				"**/build/**",
 				"**/dist/**",
 				"**/node_modules/**",
+				"**/src/*/index.ts", // Barrel files (re-exports only).
 			],
 			provider: "v8",
-			reporter: ["text", "html"],
+			reporter: ["text", "text-summary", "html"],
+			thresholds: {
+				branches: 100,
+				functions: 100,
+				lines: 100,
+				statements: 100,
+			},
 		},
 		exclude: [...configDefaults.exclude, "**/build/**"],
 		globals: true,

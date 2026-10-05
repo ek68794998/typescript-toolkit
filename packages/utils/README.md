@@ -25,10 +25,10 @@ import { invariant } from '@ekumlin/typescript-toolkit/values';
 ## Available Modules
 
 ### `collections`
-Array, map, and object utilities for common operations.
+Array, map, and object utilities for common operations, including `toArray`, `moveItem` (with the `MovePosition` constant), `omitKeys`, and `getMaxBy`.
 
 ### `dom`
-DOM manipulation and CSS helpers for browser environments.
+DOM manipulation and CSS helpers for browser environments, including the `HtmlColorName` constant.
 
 ### `environment`
 Runtime environment detection utilities.
@@ -37,13 +37,13 @@ Runtime environment detection utilities.
 Error handling and conversion utilities.
 
 ### `http`
-HTTP-related utilities including status codes, headers, query parameters, and authorization tokens.
+HTTP-related utilities including status codes, headers, query parameters, authorization tokens, `searchParamsToObject`, and `toFormData`. `HttpMethod`, `HttpRequestHeader`, and `HttpResponseHeader` are constants (see `createConstant`) with matching `is*`/`as*` helpers.
 
 ### `io`
-Input/output constants including key codes and MIME type names.
+Input/output constants including key codes (`KeyCode`) and MIME type names (`MimeTypeName`).
 
 ### `number`
-Math and number utilities like `clamp`, `positiveModulo`, and number conversions.
+Math and number utilities like `clamp`, `positiveModulo`, `scaleToFit`, and number conversions.
 
 ### `promise`
 Promise manipulation helpers.
@@ -52,16 +52,19 @@ Promise manipulation helpers.
 URL and routing utilities for navigation.
 
 ### `string`
-String manipulation functions including `upperFirst`, `toReadableFileSize`, and URL validation.
+String manipulation functions including `upperFirst`, `toReadableFileSize`, `includesIgnoreCase`, and URL validation.
+
+### `testing`
+Test helpers for building fixtures: `dangerouslyMockPartial`, `dangerouslyMockDeepPartial`, and `dangerouslyCoerceType`. All are unchecked casts, so use them only in tests.
 
 ### `time`
-Date and time utilities including leap year detection, days in month calculation, and time format validation.
+Date and time utilities including leap year detection, days in month calculation, date validation (`isValidDate`), and time format validation.
 
 ### `types`
-Type guards for runtime type checking.
+Type guards for runtime type checking, and utility types like `DeepPartial`.
 
 ### `values`
-Value assertion utilities including `invariant` and `unreachable` for runtime guarantees.
+Value assertion utilities including `invariant` and `unreachable` for runtime guarantees, and `createConstant` for defining a fixed set of values with a type guard (`isConstant`) and parser (`asConstant`).
 
 ## Dependencies
 

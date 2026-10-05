@@ -1,4 +1,8 @@
+import { ZodError } from "zod";
 import {
+	asHtmlColorName,
+	HtmlColorName,
+	htmlColorNamesSchema,
 	isHexColor,
 	isHtmlColor,
 	isHtmlColorName,
@@ -106,4 +110,24 @@ describe("types/css", () => {
 			expect(isHtmlColor(input)).toBe(expected);
 		});
 	});
+});
+
+describe("css/HtmlColorName", () => {
+	test("the schema and constant share the same values", () => {
+		expect(htmlColorNamesSchema.options).toEqual([...HtmlColorName.values]);
+		expect(HtmlColorName.name).toBe("HtmlColorName");
+	});
+
+	test.each(["red", "aliceBlue", "yellowGreen"])("accepts %s", (color) => {
+		expect(HtmlColorName.isConstant(color)).toBe(true);
+		expect(asHtmlColorName(color)).toBe(color);
+	});
+
+	test.each<unknown>(["Red", "aliceblue", "#fff", "", null])(
+		"rejects %p",
+		(value) => {
+			expect(HtmlColorName.isConstant(value)).toBe(false);
+			expect(() => asHtmlColorName(value)).toThrow(ZodError);
+		},
+	);
 });

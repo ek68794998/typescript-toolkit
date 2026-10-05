@@ -1,7 +1,8 @@
 import z from "zod";
 import { isString } from "../types";
+import { type ConstantValue, createConstant } from "../values";
 
-export const htmlColorNamesSchema = z.enum([
+export const HtmlColorName = createConstant("HtmlColorName", [
 	"aliceBlue", // #F0F8FF
 	"antiqueWhite", // #FAEBD7
 	"aqua", // #00FFFF
@@ -142,9 +143,11 @@ export const htmlColorNamesSchema = z.enum([
 	"whiteSmoke", // #F5F5F5
 	"yellow", // #FFFF00
 	"yellowGreen", // #9ACD32
-] as const);
+]);
 
-export type HtmlColorName = z.infer<typeof htmlColorNamesSchema>;
+export type HtmlColorName = ConstantValue<typeof HtmlColorName>;
+
+export const htmlColorNamesSchema = z.enum(HtmlColorName.values);
 
 export const asHtmlColorName = (value: unknown): HtmlColorName =>
 	htmlColorNamesSchema.parse(value);
