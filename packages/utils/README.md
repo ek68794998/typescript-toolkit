@@ -52,7 +52,7 @@ Promise manipulation helpers.
 URL and routing utilities for navigation.
 
 ### `string`
-String manipulation functions including `upperFirst`, `toReadableFileSize`, and URL validation.
+String manipulation functions including `upperFirst`, `toReadableFileSize`, `includesIgnoreCase`, and URL validation.
 
 ### `time`
 Date and time utilities including leap year detection, days in month calculation, and time format validation.
