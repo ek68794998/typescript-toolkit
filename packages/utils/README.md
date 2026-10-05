@@ -37,7 +37,7 @@ Runtime environment detection utilities.
 Error handling and conversion utilities.
 
 ### `http`
-HTTP-related utilities including status codes, headers, query parameters, and authorization tokens.
+HTTP-related utilities including status codes, headers, query parameters, authorization tokens, `searchParamsToObject`, and `toFormData`.
 
 ### `io`
 Input/output constants including key codes and MIME type names.
